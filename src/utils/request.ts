@@ -3,6 +3,7 @@ import axios, {
     type InternalAxiosRequestConfig,
     type AxiosResponse,
 } from "axios";
+import {ElMessage} from "element-plus";
 
 // 创建 Axios 实例
 const service = axios.create({
@@ -20,6 +21,7 @@ service.interceptors.request.use(
         return config;
     },
     (error) => {
+        ElMessage.error(error.message);
         return Promise.reject(error);
     }
 );
@@ -30,6 +32,7 @@ service.interceptors.response.use(
         return response.data; // 直接返回数据
     },
     (error) => {
+        ElMessage.error(error.message);
         return Promise.reject(error);
     }
 );

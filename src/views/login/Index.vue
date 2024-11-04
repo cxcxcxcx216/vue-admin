@@ -60,7 +60,7 @@ const handleLogin = () => {
         if(res.data.code == 0){
           ElMessage.info("登录成功")
         }
-        router.push({name:"addItem"});
+        router.push({name:"index"});
         console.log(res.data.token);
         localStorage.setItem("token", res.data.token);
         console.log("获取本地的token",res.data.token);
